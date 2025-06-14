@@ -30,6 +30,7 @@
     "lint-staged": "^12.3.2",
     "prettier": "^3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.12",
-    "vite": "^6.3.5"
+    "vite": "^6.3.5",
+    "vite-plugin-svgr": "^4.3.0"
   }
 }
