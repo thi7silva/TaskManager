@@ -129,6 +129,7 @@
   }
 
   body {
+    @apply bg-[#f8f8f8];
     font-family: 'Poppins';
   }
 }
