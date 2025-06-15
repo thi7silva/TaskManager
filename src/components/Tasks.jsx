@@ -23,7 +23,7 @@ const Tasks = () => {
   const handleTaskDeleteClick = (taskId) => {
     const newTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(newTasks);
-    toast.success('Tarefa deletada com sucesso!!');
+    toast.success('Tarefa deletada com sucesso!');
   };
 
   const handleTaskCheckboxClick = (taskId) => {
