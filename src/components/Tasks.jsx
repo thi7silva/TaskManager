@@ -1,16 +1,17 @@
-import Button from './Button';
+import { useState } from 'react';
+import { toast } from 'sonner';
+
 import {
-  TrashIcon,
   AddIcon,
-  SunIcon,
   CloudSunIcon,
   MoonIcon,
+  SunIcon,
+  TrashIcon,
 } from '../assets/icons';
-import TasksSeparator from './TasksSeparator';
-import { useState } from 'react';
 import TASKS from '../constants/Tasks.js';
+import Button from './Button';
 import TaskItem from './TaskItem.jsx';
-import { toast } from 'sonner';
+import TasksSeparator from './TasksSeparator';
 
 const Tasks = () => {
   const [tasks, setTasks] = useState(TASKS);
@@ -22,7 +23,7 @@ const Tasks = () => {
   const handleTaskDeleteClick = (taskId) => {
     const newTasks = tasks.filter((task) => task.id !== taskId);
     setTasks(newTasks);
-    toast.success('Tarefa deletada com sucesso!');
+    toast.success('Tarefa deletada com sucesso!!');
   };
 
   const handleTaskCheckboxClick = (taskId) => {
