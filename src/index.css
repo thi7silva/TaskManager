@@ -1,3 +1,4 @@
+@layer theme, base, components, utilities;
 @import 'tailwindcss';
 
 @layer base {
@@ -127,9 +128,18 @@
     font-weight: 100;
     font-style: italic;
   }
+}
 
-  body {
-    @apply bg-[#f8f8f8];
-    font-family: 'Poppins';
-  }
+@theme {
+  --font-poppins: Poppins, sans-serif;
+  --color-brand-dark-blue: #35383e;
+  --color-brand-primary: #00adb5;
+  --color-brand-dark-gray: #818181;
+  --color-brand-text-gray: #9a9c9f;
+  --color-brand-light-gray: #eeeeee;
+  --color-brand-white: #ffffff;
+  --color-brand-background: #f8f8f8;
+  --color-brand-border: #f4f4f5;
+  --color-brand-process: #ffaa04;
+  --color-brand-danger: #ef4444;
 }

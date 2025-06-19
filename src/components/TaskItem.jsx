@@ -4,15 +4,15 @@ import Button from './Button';
 const TaskItem = ({ task, handleCheckboxClick, handleDeleteClick }) => {
   const getStatusClasses = (opacity) => {
     if (task.status === 'done') {
-      return `text-[#00ADB5] ${opacity ? 'bg-[#00ADB5]/10' : 'bg-[#00ADB5]'}`;
+      return `text-brand-primary ${opacity ? 'bg-brand-primary/10' : 'bg-brand-primary'}`;
     }
 
     if (task.status === 'in_progress') {
-      return `text-[#FFAA04] ${opacity ? 'bg-[#FFAA04]/10' : 'bg-[#FFAA04]'}`;
+      return `text-brand-process ${opacity ? 'bg-brand-process/10' : 'bg-brand-process'}`;
     }
 
     if (task.status === 'not_started') {
-      return 'text-[#35383E] bg-[#35383E]/10';
+      return 'text-brand-dark-blue bg-brand-dark-blue/10';
     }
   };
 
@@ -41,7 +41,7 @@ const TaskItem = ({ task, handleCheckboxClick, handleDeleteClick }) => {
 
       <div className="flex gap-1">
         <Button variant="ghost" onClick={() => handleDeleteClick(task.id)}>
-          <TrashIcon className="text-[#9A9C9F]" />
+          <TrashIcon className="text-brand-text-gray" />
         </Button>
 
         <a href="#" className="transition hover:opacity-75">
