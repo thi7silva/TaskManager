@@ -44,7 +44,7 @@ const TaskItem = ({ task, handleCheckboxClick, handleDeleteClick }) => {
           <TrashIcon className="text-brand-text-gray" />
         </Button>
 
-        <a href="#" className="transition hover:opacity-75">
+        <a className="transition hover:opacity-75">
           <DetailsIcon />
         </a>
       </div>

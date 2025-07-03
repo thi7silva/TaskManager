@@ -1,34 +1,6 @@
 {
   "tasks": [
     {
-      "id": "1",
-      "title": "Estudar FSC",
-      "description": "Estudar para a prova de FSC",
-      "time": "morning",
-      "status": "done"
-    },
-    {
-      "id": "2",
-      "title": "Ler livro",
-      "description": "Ler o livro de matemática",
-      "time": "morning",
-      "status": "done"
-    },
-    {
-      "id": "3",
-      "title": "Treinar",
-      "description": "Treinar para competição de natação",
-      "time": "afternoon",
-      "status": "in_progress"
-    },
-    {
-      "id": "4",
-      "title": "Fazer compras",
-      "description": "Compras os igredientes para o jantar",
-      "time": "afternoon",
-      "status": "in_progress"
-    },
-    {
       "id": "5",
       "title": "Descansar",
       "description": "Assistir um filme com a princesa",
@@ -43,13 +15,6 @@
       "status": "not_started"
     },
     {
-      "id": "ffafcf18-2ba8-420b-b12e-2c702b208d6d",
-      "title": "Thiago",
-      "time": "morning",
-      "description": "Thiago",
-      "status": "not_started"
-    },
-    {
       "id": "8131e5d7-7693-44f8-860e-075e8396d3c3",
       "title": "Teste 2",
       "time": "afternoon",
@@ -57,17 +22,10 @@
       "status": "not_started"
     },
     {
-      "id": "d33340c2-a337-487d-b3d6-079b57a8d7f7",
-      "title": "Teste 3",
+      "id": "658d16c7-660b-478d-97de-c1010684de9f",
+      "title": "Adicionei",
       "time": "morning",
-      "description": "teste",
-      "status": "not_started"
-    },
-    {
-      "id": "e7ce1d2d-0a72-419b-878a-914d98f9a4a4",
-      "title": "Thiago",
-      "time": "morning",
-      "description": "Thiago",
+      "description": "Adassda",
       "status": "not_started"
     }
   ]
