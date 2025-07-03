@@ -1,7 +1,25 @@
+import { useState } from 'react';
+import { toast } from 'sonner';
+
 import { CheckIcon, DetailsIcon, LoaderIcon, TrashIcon } from '../assets/icons';
 import Button from './Button';
 
-const TaskItem = ({ task, handleCheckboxClick, handleDeleteClick }) => {
+const TaskItem = ({ task, handleCheckboxClick, onDeleteSuccess }) => {
+  const [deleteIsLoading, setDeleteIsLoading] = useState(false);
+
+  const handleDeleteClick = async () => {
+    setDeleteIsLoading(true);
+    const response = await fetch(`http://localhost:3000/tasks/${task.id}`, {
+      method: 'DELETE',
+    });
+    if (!response.ok) {
+      setDeleteIsLoading(false);
+      return toast.error('Erro ao deletar tarefa. Por favor, tente novamente.');
+    }
+    onDeleteSuccess(task.id);
+    setDeleteIsLoading(false);
+  };
+
   const getStatusClasses = (opacity) => {
     if (task.status === 'done') {
       return `text-brand-primary ${opacity ? 'bg-brand-primary/10' : 'bg-brand-primary'}`;
@@ -32,7 +50,7 @@ const TaskItem = ({ task, handleCheckboxClick, handleDeleteClick }) => {
           />
           {task.status === 'done' && <CheckIcon />}
           {task.status === 'in_progress' && (
-            <LoaderIcon className="animate-spin" />
+            <LoaderIcon className="text-brand-process animate-spin" />
           )}
         </label>
 
@@ -40,11 +58,19 @@ const TaskItem = ({ task, handleCheckboxClick, handleDeleteClick }) => {
       </div>
 
       <div className="flex gap-1">
-        <Button color="ghost" onClick={() => handleDeleteClick(task.id)}>
-          <TrashIcon className="text-brand-text-gray" />
+        <Button
+          color="ghost"
+          onClick={handleDeleteClick}
+          disabled={deleteIsLoading}
+        >
+          {deleteIsLoading ? (
+            <LoaderIcon className="text-brand-text-gray animate-spin" />
+          ) : (
+            <TrashIcon className="text-brand-text-gray" />
+          )}
         </Button>
 
-        <a className="transition hover:opacity-75">
+        <a href="#" className="transition hover:opacity-75">
           <DetailsIcon />
         </a>
       </div>
