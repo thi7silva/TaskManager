@@ -109,9 +109,14 @@ const AddTaskDialog = ({
                   placeholder="Insira o título da tarefa"
                   error={titleError?.message}
                   ref={titleRef}
+                  disabled={isLoading}
                 />
 
-                <TimeSelect error={timeError?.message} ref={timeRef} />
+                <TimeSelect
+                  error={timeError?.message}
+                  ref={timeRef}
+                  disabled={isLoading}
+                />
 
                 <Input
                   id="description"
@@ -119,6 +124,7 @@ const AddTaskDialog = ({
                   placeholder="Descreva a tarefa"
                   error={descriptionError?.message}
                   ref={descriptionRef}
+                  disabled={isLoading}
                 />
 
                 <div className="flex gap-3">
