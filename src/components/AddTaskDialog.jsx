@@ -5,60 +5,71 @@ import { createPortal } from 'react-dom';
 import { CSSTransition } from 'react-transition-group';
 import { v4 } from 'uuid';
 
+import { LoaderIcon } from '../assets/icons';
 import Button from './Button';
 import Input from './Input';
 import TimeSelect from './TimeSelect';
 
-const AddTaskDialog = ({ isOpen, handleClose, handleSubmit }) => {
+const AddTaskDialog = ({
+  isOpen,
+  handleClose,
+  onSubmitSuccess,
+  onSubmitError,
+}) => {
   const [errors, setErrors] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const nodeRef = useRef();
   const titleRef = useRef();
   const timeRef = useRef();
   const descriptionRef = useRef();
 
-  const handleSaveClick = () => {
+  const handleSaveClick = async () => {
+    setIsLoading(true);
     const newErrors = [];
-
     const title = titleRef.current.value.trim();
     const time = timeRef.current.value;
     const description = descriptionRef.current.value.trim();
-
     if (!title) {
       newErrors.push({
         inputName: 'title',
         message: 'O título é obrigatório',
       });
     }
-
     if (!time) {
       newErrors.push({
         inputName: 'time',
         message: 'O horário é obrigatório',
       });
     }
-
     if (!description) {
       newErrors.push({
         inputName: 'description',
         message: 'A descrição é obrigatória',
       });
     }
-
     setErrors(newErrors);
-
     if (newErrors.length > 0) {
-      return;
+      return setIsLoading(false);
     }
-
-    handleSubmit({
+    const task = {
       id: v4(),
       title,
       time,
       description,
       status: 'not_started',
-    });
+    };
 
+    const response = await fetch('http://localhost:3000/tasks', {
+      method: 'POST',
+      body: JSON.stringify(task),
+    });
+    if (!response.ok) {
+      setIsLoading(false);
+      return onSubmitError();
+    }
+    onSubmitSuccess(task);
+    setIsLoading(false);
     handleClose();
   };
 
@@ -122,8 +133,10 @@ const AddTaskDialog = ({ isOpen, handleClose, handleSubmit }) => {
                   <Button
                     size="large"
                     className="w-full"
-                    onClick={() => handleSaveClick()}
+                    onClick={handleSaveClick}
+                    disabled={isLoading}
                   >
+                    {isLoading && <LoaderIcon className="animate-spin" />}
                     Salvar
                   </Button>
                 </div>
