@@ -11,10 +11,11 @@
     "prepare": "husky install"
   },
   "dependencies": {
-    "json-server": "^1.0.0-beta.1",
+    "json-server": "^1.0.0-beta.3",
     "prop-types": "^15.8.1",
     "react": "^19.1.0",
     "react-dom": "^19.1.0",
+    "react-router-dom": "^7.7.0",
     "react-transition-group": "^4.4.5",
     "sonner": "^2.0.5",
     "tailwind-variants": "^1.0.0",
