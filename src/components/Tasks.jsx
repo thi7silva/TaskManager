@@ -33,13 +33,6 @@ const Tasks = () => {
   const afternoonTasks = tasks?.filter((task) => task.time === 'afternoon');
   const eveningTasks = tasks?.filter((task) => task.time === 'evening');
 
-  const onDeleteTaskSuccess = async (taskId) => {
-    queryClient.setQueryData(['tasks'], (currentTasks) =>
-      currentTasks.filter((task) => task?.id !== taskId)
-    );
-    toast.success('Tarefa deletada com sucesso!');
-  };
-
   const handleTaskCheckboxClick = (taskId) => {
     const newTasks = tasks?.map((task) => {
       if (task.id !== taskId) {
@@ -61,18 +54,6 @@ const Tasks = () => {
     });
 
     queryClient.setQueryData(['tasks'], newTasks);
-  };
-
-  const onTaskSubmitSuccess = async (task) => {
-    queryClient.setQueryData(['tasks'], (currentTasks) => [
-      ...currentTasks,
-      task,
-    ]);
-    toast.success('Tarefa adicionada com sucesso!');
-  };
-
-  const onTaskSubmitError = () => {
-    toast.error('Erro ao adicionar tarefa. Por favor, tente novamente.');
   };
 
   return (
@@ -98,8 +79,6 @@ const Tasks = () => {
           <AddTaskDialog
             isOpen={addTaskDialogIsOpen}
             handleClose={() => setAddTaskDialogIsOpen(false)}
-            onSubmitSuccess={onTaskSubmitSuccess}
-            onSubmitError={onTaskSubmitError}
           />
         </div>
       </div>
@@ -117,7 +96,6 @@ const Tasks = () => {
               key={task.id}
               task={task}
               handleCheckboxClick={handleTaskCheckboxClick}
-              onDeleteSuccess={onDeleteTaskSuccess}
             />
           ))}
         </div>
@@ -134,7 +112,6 @@ const Tasks = () => {
               key={task.id}
               task={task}
               handleCheckboxClick={handleTaskCheckboxClick}
-              onDeleteSuccess={onDeleteTaskSuccess}
             />
           ))}
         </div>
@@ -151,7 +128,6 @@ const Tasks = () => {
               key={task.id}
               task={task}
               handleCheckboxClick={handleTaskCheckboxClick}
-              onDeleteSuccess={onDeleteTaskSuccess}
             />
           ))}
         </div>
