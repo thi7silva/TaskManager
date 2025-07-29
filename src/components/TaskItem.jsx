@@ -53,7 +53,7 @@ const TaskItem = ({ task }) => {
     }
 
     if (task.status === "not_started") {
-      return "text-brand-dark-blue bg-brand-dark-blue/10";
+      return "text-brand-dark-blue bg-brand-dark-blue/5";
     }
   };
 

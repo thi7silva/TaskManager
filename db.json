@@ -2,10 +2,24 @@
   "tasks": [
     {
       "id": "10da1553-1d4c-456f-9712-b832025ce87c",
-      "title": "Tetettetetsdtrtd",
-      "description": "etetete",
-      "time": "evening",
+      "title": "Estudar FSC",
+      "description": "Estudar Full-Stack",
+      "time": "afternoon",
+      "status": "in_progress"
+    },
+    {
+      "id": "5babe2d8-f951-46e7-824f-a0e19000fda1",
+      "title": "Ir para a academia",
+      "description": "Ir para a academia",
+      "time": "morning",
       "status": "done"
+    },
+    {
+      "id": "349a7cf2-dfb3-4680-b925-c28307067fde",
+      "title": "Assistir Série",
+      "description": "Assistir Série",
+      "time": "evening",
+      "status": "not_started"
     }
   ]
 }
