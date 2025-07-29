@@ -1,11 +1,3 @@
 {
-  "tasks": [
-    {
-      "id": "d8554520-a1c5-4b97-8d10-c8d8f7ad4792",
-      "title": "Thiago Antonio 2",
-      "description": "Teste",
-      "time": "afternoon",
-      "status": "not_started"
-    }
-  ]
+  "tasks": []
 }
