@@ -17,7 +17,7 @@ export const useDeleteTask = (taskId) => {
       queryClient.setQueryData(taskQueryKeys.getAll(), (currentTasks) =>
         currentTasks.filter((oldTask) => oldTask?.id !== deletedTask.id)
       );
-      queryClient.setQueryData(taskQueryKeys.getAll());
+      // queryClient.setQueryData(taskQueryKeys.getAll());
     },
   });
 };
